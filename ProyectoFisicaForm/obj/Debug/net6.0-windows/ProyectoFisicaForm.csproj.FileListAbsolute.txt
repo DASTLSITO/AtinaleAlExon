@@ -1,0 +1,17 @@
+C:\Users\Jesus Eduardo\Desktop\cosas\C#\proyectos\ProyectoFisica\ProyectoFisicaForm\bin\Debug\net6.0-windows\ProyectoFisicaForm.exe
+C:\Users\Jesus Eduardo\Desktop\cosas\C#\proyectos\ProyectoFisica\ProyectoFisicaForm\bin\Debug\net6.0-windows\ProyectoFisicaForm.deps.json
+C:\Users\Jesus Eduardo\Desktop\cosas\C#\proyectos\ProyectoFisica\ProyectoFisicaForm\bin\Debug\net6.0-windows\ProyectoFisicaForm.runtimeconfig.json
+C:\Users\Jesus Eduardo\Desktop\cosas\C#\proyectos\ProyectoFisica\ProyectoFisicaForm\bin\Debug\net6.0-windows\ProyectoFisicaForm.dll
+C:\Users\Jesus Eduardo\Desktop\cosas\C#\proyectos\ProyectoFisica\ProyectoFisicaForm\bin\Debug\net6.0-windows\ProyectoFisicaForm.pdb
+C:\Users\Jesus Eduardo\Desktop\cosas\C#\proyectos\ProyectoFisica\ProyectoFisicaForm\obj\Debug\net6.0-windows\ProyectoFisicaForm.Form1.resources
+C:\Users\Jesus Eduardo\Desktop\cosas\C#\proyectos\ProyectoFisica\ProyectoFisicaForm\obj\Debug\net6.0-windows\ProyectoFisicaForm.csproj.GenerateResource.cache
+C:\Users\Jesus Eduardo\Desktop\cosas\C#\proyectos\ProyectoFisica\ProyectoFisicaForm\obj\Debug\net6.0-windows\ProyectoFisicaForm.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jesus Eduardo\Desktop\cosas\C#\proyectos\ProyectoFisica\ProyectoFisicaForm\obj\Debug\net6.0-windows\ProyectoFisicaForm.AssemblyInfoInputs.cache
+C:\Users\Jesus Eduardo\Desktop\cosas\C#\proyectos\ProyectoFisica\ProyectoFisicaForm\obj\Debug\net6.0-windows\ProyectoFisicaForm.AssemblyInfo.cs
+C:\Users\Jesus Eduardo\Desktop\cosas\C#\proyectos\ProyectoFisica\ProyectoFisicaForm\obj\Debug\net6.0-windows\ProyectoFisicaForm.csproj.CoreCompileInputs.cache
+C:\Users\Jesus Eduardo\Desktop\cosas\C#\proyectos\ProyectoFisica\ProyectoFisicaForm\obj\Debug\net6.0-windows\ProyectoFisicaForm.dll
+C:\Users\Jesus Eduardo\Desktop\cosas\C#\proyectos\ProyectoFisica\ProyectoFisicaForm\obj\Debug\net6.0-windows\refint\ProyectoFisicaForm.dll
+C:\Users\Jesus Eduardo\Desktop\cosas\C#\proyectos\ProyectoFisica\ProyectoFisicaForm\obj\Debug\net6.0-windows\ProyectoFisicaForm.pdb
+C:\Users\Jesus Eduardo\Desktop\cosas\C#\proyectos\ProyectoFisica\ProyectoFisicaForm\obj\Debug\net6.0-windows\ProyectoFisicaForm.genruntimeconfig.cache
+C:\Users\Jesus Eduardo\Desktop\cosas\C#\proyectos\ProyectoFisica\ProyectoFisicaForm\obj\Debug\net6.0-windows\ref\ProyectoFisicaForm.dll
+C:\Users\Jesus Eduardo\Desktop\cosas\C#\proyectos\ProyectoFisica\ProyectoFisicaForm\obj\Debug\net6.0-windows\ProyectoFisicaForm.Properties.Resources.resources
