@@ -62,7 +62,7 @@
             pictureBox1.BorderStyle = BorderStyle.Fixed3D;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.InitialImage = (Image)resources.GetObject("pictureBox1.InitialImage");
-            pictureBox1.Location = new Point(803, 260);
+            pictureBox1.Location = new Point(800, 260);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(98, 95);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;

@@ -67,10 +67,34 @@ namespace ProyectoFisicaForm
 
             tiempo = 0;
 
-            await LanzarPelota(angulo, fuerza, masa, aceleracion, aceleracionX, aceleracionY);
+            await LanzarPelota();
 
             button1.Enabled = true;
 
+            ComprobarPuntos();
+        }
+
+        public async Task LanzarPelota()
+        {
+            g.Clear(Color.FromArgb(255, 246, 220));
+
+            ObtenerPosicionDeLaPelota();
+
+            g.DrawEllipse(pen, posicionX, 340 - posicionY, 40, 40);
+
+            ComprobarPosicionEnElObjetivo();
+
+            await Task.Delay(8);
+            if (!(340 - posicionY >= 358 || posicionX >= 901) && ejecutar)
+            {
+                await LanzarPelota();
+                vsbPosicion.Maximum = 355 - pictureBox1.Size.Height;
+                g.Clear(Color.FromArgb(255, 246, 220));
+            }
+        }
+
+        public void ComprobarPuntos()
+        {
             if (puntos == 48)
             {
                 ejecutar = false;
@@ -79,18 +103,15 @@ namespace ProyectoFisicaForm
             }
         }
 
-        public async Task LanzarPelota
-            (float angulo, float fuerza, float masa, float aceleracion, float aceleracionX, float aceleracionY)
+        public void ObtenerPosicionDeLaPelota()
         {
-            g.Clear(Color.FromArgb(255, 246, 220));
-
-
             posicionX = aceleracionX * tiempo;
             posicionY = (float)((aceleracionY * tiempo) - (gravedad * tiempo * tiempo) / 2);
-            tiempo += 0.25f;
+            tiempo += 0.125f;
+        }
 
-            g.DrawEllipse(pen, posicionX, 340 - posicionY, 40, 40);
-
+        public void ComprobarPosicionEnElObjetivo()
+        {
             if (((posicionX >= pictureBox1.Location.X && posicionX <= pictureBox1.Location.X + pictureBox1.Size.Width) &&
                 ((340 - posicionY) >= pictureBox1.Location.Y && (340 - posicionY) <= pictureBox1.Location.Y + pictureBox1.Size.Height)) ||
                 ((posicionX >= pictureBox1.Location.X && posicionX <= pictureBox1.Location.X + pictureBox1.Size.Width) &&
@@ -101,14 +122,6 @@ namespace ProyectoFisicaForm
                 ejecutar = false;
                 pictureBox1.Size = new Size(pictureBox1.Size.Width, pictureBox1.Size.Height + 5);
                 pictureBox1.Location = new Point(pictureBox1.Location.X, pictureBox1.Location.Y - 5);
-            }
-
-            await Task.Delay(16);
-            if (!(340 - posicionY >= 358 || posicionX >= 901) && ejecutar)
-            {
-                await LanzarPelota(angulo, fuerza, masa, aceleracion, aceleracionX, aceleracionY);
-                vsbPosicion.Maximum = 355 - pictureBox1.Size.Height;
-                g.Clear(Color.FromArgb(255, 246, 220));
             }
         }
 
