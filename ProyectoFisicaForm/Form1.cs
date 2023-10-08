@@ -29,21 +29,9 @@ namespace ProyectoFisicaForm
             g = panel1.CreateGraphics();
         }
 
-        private void hScrollBar3_Scroll(object sender, ScrollEventArgs e)
-        {
-            var scrollBar = sender as ScrollBar;
-            pictureBox1.Location = new Point(scrollBar.Value, vsbPosicion.Value);
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void hScrollBar4_Scroll(object sender, ScrollEventArgs e)
-        {
-            var tb = sender as HScrollBar;
-            label5.Text = $"Ángulo del tiro: {tb.Value}°";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -55,9 +43,9 @@ namespace ProyectoFisicaForm
         {
             button1.Enabled = false;
             ejecutar = true;
-            angulo = hsbAngulo.Value;
-            fuerza = hsbFuerzaInicial.Value;
-            masa = hsbMasa.Value;
+            angulo = Convert.ToInt32(nudAngulo.Value);
+            fuerza = Convert.ToInt32(nudFuerza.Value);
+            masa = Convert.ToInt32(nudPeso.Value);
 
 
             angulo = (float)(angulo * Math.PI / 180);
@@ -125,19 +113,13 @@ namespace ProyectoFisicaForm
             }
         }
 
-        private void hsbFuerzaInicial_Scroll(object sender, ScrollEventArgs e)
+        private void hScrollBar3_Scroll(object sender, ScrollEventArgs e)
         {
-            var tb = sender as HScrollBar;
-            label2.Text = $"Fuerza inicial: {tb.Value}";
+            var scrollBar = sender as ScrollBar;
+            pictureBox1.Location = new Point(scrollBar.Value, vsbPosicion.Value);
         }
 
-        private void hsbMasa_Scroll(object sender, ScrollEventArgs e)
-        {
-            var tb = sender as HScrollBar;
-            label3.Text = $"Peso del objeto: {tb.Value}";
-        }
-
-        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        private void vsbPosicion_Scroll(object sender, ScrollEventArgs e)
         {
             var scrollBar = sender as ScrollBar;
             pictureBox1.Location = new Point(hsbPosicion.Value, scrollBar.Value);

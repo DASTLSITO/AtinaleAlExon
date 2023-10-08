@@ -33,18 +33,21 @@
             pictureBox1 = new PictureBox();
             label1 = new Label();
             label2 = new Label();
-            hsbFuerzaInicial = new HScrollBar();
-            hsbMasa = new HScrollBar();
             label3 = new Label();
             hsbPosicion = new HScrollBar();
-            hsbAngulo = new HScrollBar();
             label5 = new Label();
             button1 = new Button();
             button2 = new Button();
             vsbPosicion = new VScrollBar();
             label4 = new Label();
+            nudFuerza = new NumericUpDown();
+            nudPeso = new NumericUpDown();
+            nudAngulo = new NumericUpDown();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudFuerza).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudPeso).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudAngulo).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -91,31 +94,6 @@
             label2.TabIndex = 2;
             label2.Text = "Fuerza inicial";
             // 
-            // hsbFuerzaInicial
-            // 
-            hsbFuerzaInicial.Cursor = Cursors.Hand;
-            hsbFuerzaInicial.Location = new Point(12, 465);
-            hsbFuerzaInicial.Maximum = 1009;
-            hsbFuerzaInicial.Minimum = 1;
-            hsbFuerzaInicial.Name = "hsbFuerzaInicial";
-            hsbFuerzaInicial.Size = new Size(240, 41);
-            hsbFuerzaInicial.TabIndex = 4;
-            hsbFuerzaInicial.Value = 1;
-            hsbFuerzaInicial.Scroll += hsbFuerzaInicial_Scroll;
-            // 
-            // hsbMasa
-            // 
-            hsbMasa.Cursor = Cursors.Hand;
-            hsbMasa.LargeChange = 1;
-            hsbMasa.Location = new Point(12, 543);
-            hsbMasa.Maximum = 10;
-            hsbMasa.Minimum = 1;
-            hsbMasa.Name = "hsbMasa";
-            hsbMasa.Size = new Size(240, 41);
-            hsbMasa.TabIndex = 6;
-            hsbMasa.Value = 1;
-            hsbMasa.Scroll += hsbMasa_Scroll;
-            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -138,16 +116,6 @@
             hsbPosicion.TabIndex = 10;
             hsbPosicion.Value = 800;
             hsbPosicion.Scroll += hScrollBar3_Scroll;
-            // 
-            // hsbAngulo
-            // 
-            hsbAngulo.Cursor = Cursors.Hand;
-            hsbAngulo.Location = new Point(12, 622);
-            hsbAngulo.Maximum = 99;
-            hsbAngulo.Name = "hsbAngulo";
-            hsbAngulo.Size = new Size(240, 41);
-            hsbAngulo.TabIndex = 8;
-            hsbAngulo.Scroll += hScrollBar4_Scroll;
             // 
             // label5
             // 
@@ -194,16 +162,44 @@
             vsbPosicion.Size = new Size(46, 355);
             vsbPosicion.TabIndex = 12;
             vsbPosicion.Value = 260;
-            vsbPosicion.Scroll += vScrollBar1_Scroll;
+            vsbPosicion.Scroll += vsbPosicion_Scroll;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Location = new Point(396, 465);
             label4.Name = "label4";
-            label4.Size = new Size(89, 25);
+            label4.Size = new Size(20, 25);
             label4.TabIndex = 13;
-            label4.Text = "Puntos: 0";
+            label4.Text = "-";
+            // 
+            // nudFuerza
+            // 
+            nudFuerza.Location = new Point(12, 463);
+            nudFuerza.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            nudFuerza.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            nudFuerza.Name = "nudFuerza";
+            nudFuerza.Size = new Size(120, 33);
+            nudFuerza.TabIndex = 14;
+            nudFuerza.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // nudPeso
+            // 
+            nudPeso.Location = new Point(12, 546);
+            nudPeso.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            nudPeso.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            nudPeso.Name = "nudPeso";
+            nudPeso.Size = new Size(120, 33);
+            nudPeso.TabIndex = 15;
+            nudPeso.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // nudAngulo
+            // 
+            nudAngulo.Location = new Point(12, 625);
+            nudAngulo.Maximum = new decimal(new int[] { 90, 0, 0, 0 });
+            nudAngulo.Name = "nudAngulo";
+            nudAngulo.Size = new Size(120, 33);
+            nudAngulo.TabIndex = 16;
             // 
             // Form1
             // 
@@ -211,16 +207,16 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 198, 172);
             ClientSize = new Size(971, 678);
+            Controls.Add(nudAngulo);
+            Controls.Add(nudPeso);
+            Controls.Add(nudFuerza);
             Controls.Add(label4);
             Controls.Add(vsbPosicion);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(hsbPosicion);
-            Controls.Add(hsbAngulo);
             Controls.Add(label5);
-            Controls.Add(hsbMasa);
             Controls.Add(label3);
-            Controls.Add(hsbFuerzaInicial);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(panel1);
@@ -233,6 +229,9 @@
             Text = "Atinale al Exon";
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudFuerza).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudPeso).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudAngulo).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -242,16 +241,16 @@
         private Panel panel1;
         private Label label1;
         private Label label2;
-        private HScrollBar hsbFuerzaInicial;
-        private HScrollBar hsbMasa;
         private Label label3;
         private HScrollBar hsbPosicion;
-        private HScrollBar hsbAngulo;
         private Label label5;
         private PictureBox pictureBox1;
         private Button button1;
         private Button button2;
         private VScrollBar vsbPosicion;
         private Label label4;
+        private NumericUpDown nudFuerza;
+        private NumericUpDown nudPeso;
+        private NumericUpDown nudAngulo;
     }
 }
