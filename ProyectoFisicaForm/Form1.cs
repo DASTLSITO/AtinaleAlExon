@@ -7,10 +7,12 @@ namespace ProyectoFisicaForm
         float fuerza = 0;
         float masa = 0;
         float angulo = 0;
-        float gravedad = 9.81f;
-        float aceleracion = 0;
+        float aceleracionInicial = 0;
         float aceleracionX = 0;
-        float aceleracionY = 0;
+        float aceleracionY = 9.81f;
+        float velocidadInicial = 0;
+        float velocidadX = 0;
+        float velocidadY = 0;
         float tiempo = 0;
 
         float posiciónXColision = 0;
@@ -36,12 +38,13 @@ namespace ProyectoFisicaForm
 
         private void button1_Click(object sender, EventArgs e)
         {
+            tiempo = 0;
             ObtenerParametros();
+            button1.Enabled = true;
         }
 
         public async Task ObtenerParametros()
         {
-            button1.Enabled = false;
             ejecutar = true;
             angulo = Convert.ToInt32(nudAngulo.Value);
             fuerza = Convert.ToInt32(nudFuerza.Value);
@@ -49,15 +52,13 @@ namespace ProyectoFisicaForm
 
 
             angulo = (float)(angulo * Math.PI / 180);
-            aceleracion = fuerza / masa;
-            aceleracionX = (float)(aceleracion * Math.Cos(angulo));
-            aceleracionY = (float)(aceleracion * Math.Sin(angulo));
-
-            tiempo = 0;
+            aceleracionInicial = fuerza / masa;
+            aceleracionX = (float)(aceleracionInicial * Math.Cos(angulo));
+            velocidadX = aceleracionX;
+            velocidadX = (float)(velocidadX * Math.Cos(angulo));
+            velocidadY = (float)((aceleracionInicial * Math.Sin(angulo)) - aceleracionY*tiempo);
 
             await LanzarPelota();
-
-            button1.Enabled = true;
 
             ComprobarPuntos();
         }
@@ -69,13 +70,13 @@ namespace ProyectoFisicaForm
             ObtenerPosicionDeLaPelota();
 
             g.DrawEllipse(pen, posicionX, 340 - posicionY, 40, 40);
-
+            
             ComprobarPosicionEnElObjetivo();
 
             await Task.Delay(8);
-            if (!(340 - posicionY >= 358 || posicionX >= 901) && ejecutar)
+            if (!(340 - posicionY >= 362 || posicionX >= 901) && ejecutar)
             {
-                await LanzarPelota();
+                await ObtenerParametros();
                 vsbPosicion.Maximum = 355 - pictureBox1.Size.Height;
                 g.Clear(Color.FromArgb(255, 246, 220));
             }
@@ -93,8 +94,8 @@ namespace ProyectoFisicaForm
 
         public void ObtenerPosicionDeLaPelota()
         {
-            posicionX = aceleracionX * tiempo;
-            posicionY = (float)((aceleracionY * tiempo) - (gravedad * tiempo * tiempo) / 2);
+            posicionX = velocidadX * tiempo;
+            posicionY = (float)((velocidadY * tiempo) - (aceleracionY * tiempo * tiempo) / 2);
             tiempo += 0.125f;
         }
 
